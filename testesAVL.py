@@ -3,8 +3,8 @@ from datetime import datetime
 from random import randint
 
 class Node():
-    #tot_palavras=0
-    #palavras_distintas=0
+    tot_palavras=0
+    palavras_distintas=0
     numero_rotacoes=0
     def __init__(self, palavra, linha):
         self.palavra=palavra
@@ -13,8 +13,8 @@ class Node():
         self.altura=1
         self.menor=None
         self.maior=None
-        #Node.tot_palavras+=1
-        #Node.palavras_distintas+=1
+        Node.tot_palavras+=1
+        Node.palavras_distintas+=1
     
     def equilibrarArvore(self):
         auxcima=self
@@ -94,7 +94,7 @@ class Node():
                     break
                 else: self=self.maior
             else: 
-                #Node.tot_palavras+=1
+                Node.tot_palavras+=1
                 if linha not in self.linha: self.linha.append(linha)
                 break
 
@@ -135,29 +135,23 @@ def recebe_comandos():
                 num_linha+=1
             resultados+= "GUARDADO.\n"
             now1=(datetime.now()-start_time).seconds
-            #print("TEMPO DE CARREGAMENTO DE TEXTO",now1,"s")
             break
     
-    #print("Numero de rotacoes simples:", Node.numero_rotacoes)
-
-    # LINHAS
+    # 50 LINHAS
     start_time = datetime.now()
     for i in range(50):
         linha=texto[randint(0, 999)]
-        #resultados+="LINHAS "+palavras[i]+"\n"
         arvore.procuraPalavraNaArvore(linha[randint(0, len(linha)-1)], None)
     now2=(datetime.now()-start_time).microseconds
-    #print("TEMPO DE CARREGAMENTO 50 LINHAS",(datetime.now()-start_time).microseconds,"mics")
     
     # ASSOC
     start_time = datetime.now()
     for i in range(50):
         linha=texto[randint(0, 999)]
-        #resultados+="ASSOC "+palavras[i]+"\n"
         arvore.procuraPalavraNaArvore(linha[randint(0, len(linha)-1)], randint(0,999))
     now3=(datetime.now()-start_time).microseconds
-    #print("TEMPO DE CARREGAMENTO 50 ASSOC",(datetime.now()-start_time).microseconds,"mics")
 
+    # 500 LINHAS
     palavras=[]
     for i in range(10):
         linha=texto[randint(0, 999)]
@@ -165,10 +159,10 @@ def recebe_comandos():
 
     start_time = datetime.now()
     for i in range(500): arvore.procuraPalavraNaArvore(palavras[randint(0, len(palavras)-1)], None)
-    #print("TEMPO DE CARREGAMENTO 500 LINHAS",(datetime.now()-start_time).microseconds,"s")
     now4=(datetime.now()-start_time).microseconds
 
-    #print("\nDADOS:\nPalavras: {}\nDistintas: {}".format(arvore.tot_palavras, arvore.palavras_distintas))
+    print("\nDADOS:\nPalavras: {}\nDistintas: {}".format(arvore.tot_palavras, arvore.palavras_distintas))
+    print("Numero de rotacoes simples:", Node.numero_rotacoes)
     return now1, now2, now3, now4
 
 def adicionaPalavras(arvore: Node, linha, n_linha):

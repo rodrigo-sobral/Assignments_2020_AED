@@ -31,7 +31,6 @@ def recebe_comandos():
                 aux=input().strip("\n").upper()
             resultados+="GUARDADO.\n"
             now1=(datetime.now()-start_time).seconds
-            #print("TEMPO DE CARREGAMENTO",(datetime.now()-start_time).seconds,"s")
             break
         else: continue
     
@@ -42,7 +41,6 @@ def recebe_comandos():
         palavra=linha[randint(0,len(linha)-1)]
         procuraLinhaDaPalavra(texto, palavra)
     now2=(datetime.now()-start_time).microseconds
-    #print("TEMPO DE CARREGAMENTO 50 LINHAS",(datetime.now()-start_time).microseconds,"s")
 
     start_time = datetime.now()
     # ASSOC
@@ -52,7 +50,6 @@ def recebe_comandos():
         palavra=linha[randint(0,len(linha)-1)]
         procuraPalavraNaLinha(texto, palavra, num_linha)
     now3=(datetime.now()-start_time).microseconds
-    #print("TEMPO DE CARREGAMENTO 50 ASSOC",(datetime.now()-start_time).microseconds,"s")
 
     # LINHAS
     lista_palavras=[]
@@ -62,7 +59,6 @@ def recebe_comandos():
     start_time = datetime.now()
     for i in range(500): procuraLinhaDaPalavra(texto, lista_palavras[randint(0, len(lista_palavras)-1)])
     now4=(datetime.now()-start_time).microseconds
-    #print("TEMPO DE CARREGAMENTO 500 LINHAS",(datetime.now()-start_time).microseconds,"s")
 
     return now1, now2, now3, now4
 
