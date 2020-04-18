@@ -135,7 +135,7 @@ def recebe_comandos():
                 num_linha+=1
             resultados+= "GUARDADO.\n"
             now1=(datetime.now()-start_time).seconds
-            break
+        elif comando=="TCHAU": break
     
     # 50 LINHAS
     start_time = datetime.now()
