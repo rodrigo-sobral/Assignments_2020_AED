@@ -146,5 +146,4 @@ def adicionaPalavras(arvore: Node, linha, n_linha):
                 arvore=arvore.atualizaAlturasFatores()
     return arvore
 
-if __name__ == "__main__":
-    recebe_comandos()
+if __name__ == "__main__": recebe_comandos()

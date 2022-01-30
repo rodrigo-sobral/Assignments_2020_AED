@@ -1,5 +1,3 @@
-from datetime import datetime
-
 def receiveCommands():
     database=[]     # [ word , [all_searchers] , [distinct_searchers] ]
     results=""
