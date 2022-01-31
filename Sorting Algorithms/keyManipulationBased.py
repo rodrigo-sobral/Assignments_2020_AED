@@ -68,5 +68,4 @@ def countingSort(database, digitsArray):
             database.pop(greater)
     return sortedArray
      
-if __name__ == "__main__":
-    receiveCommands()
+if __name__ == "__main__": receiveCommands()

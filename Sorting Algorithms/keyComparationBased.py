@@ -61,10 +61,7 @@ def mergeSort(database, command):
                 database.append(right_array[0]) 
                 right_array.pop(0) 
   
-        for i in left_array: 
-            database.append(i) 
-        for i in right_array: 
-            database.append(i)
+        for i in left_array: database.append(i) 
+        for i in right_array: database.append(i)
 
-if __name__ == "__main__":
-    receiveCommands()
+if __name__ == "__main__": receiveCommands()
